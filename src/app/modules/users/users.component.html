@@ -23,5 +23,10 @@
     <div class="col-md-3">
       <pre *ngFor="let item of items | async">{{item.content}}</pre>
     </div>
+
+    <h2>LED status history</h2>
+    <div class="col-md-3">
+      <pre *ngFor="let item of ledHistory | async">{{item.status}} by {{item.ip}} on {{item.time}}</pre>
+    </div>
    
   </div>

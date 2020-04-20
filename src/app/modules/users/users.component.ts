@@ -10,9 +10,12 @@ import { Observable } from 'rxjs';
 export class UsersComponent implements OnInit {
   itemValue = '';
   items: Observable<any[]>;
+  ledHistory: Observable<any[]>;
+
 
   constructor(public db: AngularFireDatabase) {
     this.items = db.list('items').valueChanges();
+    this.ledHistory = db.list('led_history').valueChanges();
   }
 
   ngOnInit(): void {
