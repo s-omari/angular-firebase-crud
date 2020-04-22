@@ -1,0 +1,11 @@
+<ul>
+    <li *ngFor="let entity of entities" (click)="selectEntity(entity)">
+        {{entity.entityName}}
+      </li>
+</ul>
+<div>
+    <h2>Content from Firebase</h2>
+    <div class="col-md-3">
+      <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }}</pre>
+    </div>
+</div>
