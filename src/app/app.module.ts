@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule} from './shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,9 +21,11 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule, // for database
-    FormsModule
+    FormsModule, BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [SharedModule]
 })
 export class AppModule { }

@@ -6,6 +6,8 @@
 <div>
     <h2>Content from Firebase</h2>
     <div class="col-md-3">
-      <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }}</pre>
+      <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }} {{item.key}}</pre>
     </div>
+
+    <pre>{{entityList | async | json}}</pre>
 </div>

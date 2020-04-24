@@ -32,6 +32,7 @@ export class CrudComponent implements OnInit {
   selectEntity(entity) {
     this.selectedEntity = entity;
     this.entityList = this.db.list(entity.entityName).valueChanges();
+    console.log(this.entityList)
 
     console.log(this.selectedEntity)
   }
