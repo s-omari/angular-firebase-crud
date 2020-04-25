@@ -1,13 +1,72 @@
-<ul>
-    <li *ngFor="let entity of entities" (click)="selectEntity(entity)">
-        {{entity.entityName}}
-      </li>
-</ul>
-<div>
-    <h2>Content from Firebase</h2>
-    <div class="col-md-3">
-      <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }} {{item.key}}</pre>
-    </div>
 
-    <pre>{{entityList | async | json}}</pre>
+<mat-sidenav-container class="h-100">
+
+    <!-- <mat-sidenav class="h-100" #drawer 
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)" class="sidenav" [attr.role]="'navigation'" [mode]="'side'" [opened]="true"> -->
+      <mat-sidenav class="h-100" #drawer 
+     class="sidenav" [attr.role]="'navigation'" [mode]="'side'" [opened]="true">
+
+      <mat-toolbar color="primary">
+          <button mat-button routerLink="" class="">
+            App Layout
+          </button>
+          <span class="spacer"></span>
+     
+        </mat-toolbar>
+  
+  
+        <ul>
+            <li *ngFor="let entity of entities" (click)="selectEntity(entity)">
+                {{entity.entityName}}
+              </li>
+        </ul>
+    </mat-sidenav>
+  
+  
+    <mat-sidenav-content class="d-flex flex-column">
+      
+        <div id="page-content">
+            <mat-toolbar color="primary">
+                <!-- <button mat-button routerLink="" class="">
+                  Nested Master Detail
+                </button> -->
+                <span class="spacer"></span>
+              </mat-toolbar>
+          <!-- <div *ngIf="isHandset$ | async" class="toggleRight">
+            <button class="float-right" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+              <mat-icon fontSet="fa" fontIcon="fa-bars"></mat-icon>
+            </button>
+          </div> -->
+
+<div class="d-flex flex-column">
+    <div>
+        <h2>Content from Firebase</h2>
+        <div class="col-md-3">
+          <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }} </pre>
+        </div>
+    
+    </div>
+    <div>
+        <pre>{{entityList | async | json}}</pre>
+
+    </div>
 </div>
+          
+
+
+
+      <!-- <router-outlet></router-outlet> -->
+  
+        </div>
+  
+        <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+              <small>Copyright &copy; ngStarter</small>
+            </div>
+          </footer>
+          
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

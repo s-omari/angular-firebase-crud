@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-
+// import { map } from 'rxjs/operators';
+// import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.scss']
 })
 export class CrudComponent implements OnInit {
+
+  // isHandset$: Observable<boolean> = breakpointObserver.observe(Breakpoints.Handset)
+  //   .pipe(
+  //     map(result => result.matches)
+  //   );
 
   // entities = ['items' , 'users'];
   entities = [
