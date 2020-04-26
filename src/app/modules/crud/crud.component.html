@@ -39,16 +39,18 @@
             </button>
           </div> -->
 
-<div class="d-flex flex-column">
-    <div>
+<div class="d-flex flex-row">
+    <div class="d-flex flex-column">
         <h2>Content from Firebase</h2>
-        <div class="col-md-3">
-          <pre *ngFor="let item of entityList | async">{{ item[selectedEntity.mainField] }} </pre>
-        </div>
-    
+        <!-- <div> -->
+            <ul>
+                <li *ngFor="let item of entityList | async" (click)="selectItem(item)">{{ item[selectedEntity.mainField] }} </li>
+
+            </ul>
+        <!-- </div> -->
     </div>
-    <div>
-        <pre>{{entityList | async | json}}</pre>
+    <div class="d-flex">
+        <pre>{{selectedItem  | json}}</pre>
 
     </div>
 </div>

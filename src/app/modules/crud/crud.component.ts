@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { v4 as uuid } from 'uuid';
 // import { map } from 'rxjs/operators';
 // import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 @Component({
@@ -26,9 +27,10 @@ export class CrudComponent implements OnInit {
   ];
   entityList: Observable<any[]>;
   selectedEntity = this.entities[0];
+  selectedItem;
   constructor(public db: AngularFireDatabase) {
     this.entityList = db.list(this.selectedEntity.entityName).valueChanges();
-    // this.db.list('haloproteins').push({ name: 'kinesin' , subunitCount: 3});
+    // this.db.list('haloproteins').push({ name: 'myosin' , subunitCount: 4 , id: uuid()});
   }
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class CrudComponent implements OnInit {
     console.log(this.entityList)
 
     console.log(this.selectedEntity)
+  }
+  selectItem(item) {
+    console.log(item);
+    this.selectedItem = item;
   }
 
 }
